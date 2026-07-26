@@ -1,0 +1,12 @@
+{
+  "name": "idolvpn-site",
+  "private": true,
+  "type": "module",
+  "description": "IdolVPN static site (GitHub Pages) with a daily job that syncs the Latest Posts section from the public Telegram channel preview.",
+  "scripts": {
+    "fetch-posts": "node scripts/fetch-posts.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

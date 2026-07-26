@@ -1,0 +1,40 @@
+name: Sync latest Telegram posts
+
+on:
+  schedule:
+    # Runs every day at 03:00 UTC (~06:30 / 07:30 Iran time, DST-dependent).
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install --no-save cheerio
+
+      - name: Fetch latest channel posts
+        run: node scripts/fetch-posts.mjs
+
+      - name: Commit updated data/posts.json (if changed)
+        run: |
+          git config user.name "idolvpn-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/posts.json; then
+            echo "No changes to commit."
+          else
+            git add data/posts.json
+            git commit -m "chore: sync latest channel posts [skip ci]"
+            git push
+          fi

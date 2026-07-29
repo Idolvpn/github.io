@@ -1,4 +1,4 @@
-Enter(function(){
+(function(){
   "use strict";
 
   var LANG_KEY = "idolvpn-lang";

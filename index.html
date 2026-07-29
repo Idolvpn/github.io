@@ -3,232 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Idolvpn — تیم آیدل وی‌پی‌ان</title>
-<meta name="description" content="Idolvpn — معرفی، ارائه و پشتیبانی ابزارهای آزادی اینترنت">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%2322D3B4%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#070B18">
+<title>IdolVPN — آزادی، حریم خصوصی، بی‌نهایت</title>
+<meta name="description" content="کانال و ربات تلگرام IdolVPN؛ کانفیگ‌های رایگان و پرمیوم V2Ray، Trojan، Shadowsocks و Hiddify، به‌همراه ابزار اختصاصی تست سرعت و نشتی آی‌پی.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="beacon-field" aria-hidden="true">
-  <span class="ring r1"></span>
-  <span class="ring r2"></span>
-  <span class="ring r3"></span>
-  <span class="dot"></span>
-</div>
+<nav class="nav">
+  <div class="container">
+    <button class="icon-toggle nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
 
-<header class="site-header">
-  <div class="wrap header-inner">
     <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name">Idolvpn</span>
+      <img src="assets/logo-192.png" alt="IdolVPN" width="34" height="34">
+      <span>
+        IdolVPN
+        <small data-i18n="nav.brand.sub">FREEDOM · PRIVACY · LIMITLESS</small>
+      </span>
     </a>
 
-    <nav class="main-nav" id="mainNav">
+    <div class="nav-links" id="navLinks">
+      <a href="#top" data-i18n="nav.home">خانه</a>
+      <a href="#about" data-i18n="nav.about">درباره ما</a>
       <a href="#services" data-i18n="nav.services">خدمات</a>
-      <a href="#categories" data-i18n="nav.categories">دسته‌بندی‌ها</a>
-      <a href="#tools" data-i18n="nav.tools">ابزارها</a>
-      <a href="#contact" data-i18n="nav.contact">ارتباط با ما</a>
-    </nav>
+      <a href="#posts" data-i18n="nav.posts">آخرین پست‌ها</a>
+      <a href="#speed" data-i18n="nav.speed">تست سرعت</a>
+      <a href="#faq" data-i18n="nav.faq">سوالات متداول</a>
+    </div>
 
-    <div class="header-actions">
-      <button class="pill-btn" id="langToggle" type="button" aria-label="Switch language">
-        <span data-i18n="controls.langShort">EN</span>
-      </button>
-      <button class="pill-btn icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.5"/><g stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.5" y1="4.5" x2="6.6" y2="6.6"/><line x1="17.4" y1="17.4" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.6" y2="17.4"/><line x1="17.4" y1="6.6" x2="19.5" y2="4.5"/></g></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
-      </button>
-      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+    <div class="nav-tools">
+      <a class="btn btn-primary btn-sm" href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="nav.join">عضویت در کانال</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">FA / EN</button>
+      <button class="icon-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.5" y1="4.5" x2="6.2" y2="6.2"/><line x1="17.8" y1="17.8" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.2" y2="17.8"/><line x1="17.8" y1="6.2" x2="19.5" y2="4.5"/></svg>
+        <svg id="themeIconMoon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M20 14.3A8.4 8.4 0 1 1 9.7 4a7 7 0 0 0 10.3 10.3z"/></svg>
       </button>
     </div>
   </div>
-</header>
+</nav>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-inner">
-      <p class="eyebrow" data-i18n="hero.eyebrow">تیم آیدل وی‌پی‌ان</p>
-      <h1 data-i18n="hero.title">یک روزنه‌ی روشن<br>در دیوارهای فیلترینگ</h1>
-      <p class="hero-sub" data-i18n="hero.sub">
-        از معرفی ابزارها تا ارائه‌ی رایگان کانفیگ و اشتراک، از هشدارهای امنیتی تا اطلاع‌رسانی سالم — Idolvpn همراه شماست برای یک زندگی دیجیتال آزاد و امن.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">
-          <span data-i18n="hero.ctaBot">ربات کانفیگ رایگان</span>
-        </a>
-        <a class="btn btn-ghost" href="#services">
-          <span data-i18n="hero.ctaServices">دیدن خدمات</span>
-        </a>
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow hero-tag" data-i18n="hero.eyebrow">کانال و ربات رسمی IdolVPN در تلگرام</p>
+        <h1><span data-i18n="hero.title.1">یک تونل امن،</span> <span class="grad" data-i18n="hero.title.grad">بی‌نهایت آزادی.</span></h1>
+        <p class="lead" data-i18n="hero.lead">
+          IdolVPN یک کانال تلگرامی است که کانفیگ‌های رایگان و پرمیوم V2Ray، Trojan، Shadowsocks، WireGuard و Hiddify را هر روز منتشر می‌کند و از طریق ربات هوشمند خودش، اتصال آماده را در چند ثانیه تحویل کاربر می‌دهد.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="hero.cta.channel">عضویت در کانال</a>
+          <a class="btn btn-ghost" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener" data-i18n="hero.cta.bot">باز کردن ربات</a>
+          <a class="btn btn-ghost" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener" data-i18n="hero.cta.speed">تست سرعت و نشتی آی‌پی</a>
+        </div>
+        <div class="hero-meta">
+          <div><b data-i18n="hero.meta.1.v">روزانه</b><span data-i18n="hero.meta.1.k">به‌روزرسانی</span></div>
+          <div><b data-i18n="hero.meta.2.v">V2Ray · Trojan · SS · Hiddify</b><span data-i18n="hero.meta.2.k">پروتکل‌ها</span></div>
+          <div><b data-i18n="hero.meta.3.v">کانال + ربات</b><span data-i18n="hero.meta.3.k">دسترسی</span></div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- STATS / SIGNAL STRIP -->
-  <section class="signal-strip">
-    <div class="wrap signal-grid">
-      <div class="signal-item">
-        <span class="signal-num" data-i18n="signal.num1">۴</span>
-        <span class="signal-label" data-i18n="signal.categories">دسته خدمت اصلی</span>
-      </div>
-      <div class="signal-item">
-        <span class="signal-num" data-i18n="signal.num2">۲۴/۷</span>
-        <span class="signal-label" data-i18n="signal.support">در دسترس بودن اطلاع‌رسانی</span>
-      </div>
-      <div class="signal-item">
-        <span class="signal-num" data-i18n="signal.num3">۲</span>
-        <span class="signal-label" data-i18n="signal.tools">ابزار اختصاصی تیم</span>
-      </div>
-      <div class="signal-item">
-        <span class="signal-num" data-i18n="signal.num4">+۱۰۰۰</span>
-        <span class="signal-label" data-i18n="signal.more">خدمت دیگر</span>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 320">
+          <defs>
+            <linearGradient id="gradSignal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2FE6E0"/>
+              <stop offset="1" stop-color="#8FF6EF"/>
+            </linearGradient>
+          </defs>
+          <circle class="tunnel-path" cx="160" cy="160" r="140"/>
+          <circle class="tunnel-path" cx="160" cy="160" r="105"/>
+          <circle class="tunnel-path live" cx="160" cy="160" r="70"/>
+          <circle class="packet" cx="230" cy="160" r="5" fill="#2FE6E0"/>
+          <g class="hero-orbit-logo">
+            <circle cx="160" cy="160" r="34" fill="url(#gradSignal)"/>
+            <path d="M148 148h24v14a12 12 0 0 1-12 12 12 12 0 0 1-12-12z" fill="#031014"/>
+            <rect x="152" y="140" width="16" height="12" rx="8" fill="none" stroke="#031014" stroke-width="4"/>
+          </g>
+        </svg>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="about.eyebrow">درباره ما</p>
+        <h2 data-i18n="about.title">IdolVPN چیست؟</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="reveal">
+          <p data-i18n="about.p1">
+            IdolVPN از دل یک نیاز ساده شکل گرفت: دسترسی آزاد، پایدار و بدون دردسر به اینترنت باز، برای همه. آنچه امروز می‌بینید تنها بخش کوچکی از فعالیت روزانهٔ کانال است؛ پشت صحنه، تیم IdolVPN هر روز کانفیگ‌ها را بررسی، تست و به‌روزرسانی می‌کند تا کاربران همیشه به سریع‌ترین و پایدارترین سرورها دسترسی داشته باشند.
+          </p>
+          <p style="margin-block-start:1rem" data-i18n="about.p2">
+            به‌جای فروش وعده‌های بزرگ، ما روی سه چیز تمرکز کرده‌ایم: کانفیگ‌های واقعاً کاربردی، ابزاری برای اینکه خودتان کیفیت اتصال را بسنجید، و پاسخ‌گویی مستقیم در کانال و ربات. هرچه دربارهٔ IdolVPN نیاز دارید بدانید، همین‌جا یا در کانال تلگرام منتشر می‌شود.
+          </p>
+        </div>
+
+        <div class="about-card reveal">
+          <div class="readout">
+            <div class="line"><span data-i18n="about.readout.1.k">کانال</span><b data-i18n="about.readout.1.v">@Idolvpn</b></div>
+            <div class="line"><span data-i18n="about.readout.2.k">ربات</span><b data-i18n="about.readout.2.v">@Idolvpn_robot</b></div>
+            <div class="line"><span data-i18n="about.readout.3.k">ابزار تست</span><b data-i18n="about.readout.3.v">Speed & Leak Test</b></div>
+          </div>
+          <p class="eyebrow" style="margin-block-start:1.3rem" data-i18n="about.tags.title">پروتکل‌های پشتیبانی‌شده</p>
+          <div class="tag-row">
+            <span class="tag">V2Ray</span>
+            <span class="tag">VMess</span>
+            <span class="tag">VLESS</span>
+            <span class="tag">Trojan</span>
+            <span class="tag">Shadowsocks</span>
+            <span class="tag">WireGuard</span>
+            <span class="tag">Hiddify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
   <section class="section" id="services">
-    <div class="wrap">
-      <p class="eyebrow" data-i18n="about.eyebrow">درباره‌ی ما</p>
-      <h2 data-i18n="about.title">هدف ما، آزادی امن در فضای مجازی است</h2>
-      <p class="section-lead" data-i18n="about.lead">
-        Idolvpn مجموعه‌ای است که کنار معرفی و آموزش ابزارهای دور زدن فیلترینگ، به کاربران کمک می‌کند تا امن‌تر، آگاهانه‌تر و رایگان‌تر از اینترنت باز استفاده کنند؛ از وب‌سایت و اپلیکیشن گرفته تا پروژه‌های متن‌باز و گوشی‌های مناسب حریم خصوصی.
-      </p>
-    </div>
-  </section>
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="services.eyebrow">خدمات</p>
+        <h2 data-i18n="services.title">همه‌چیز، در کانال و ربات</h2>
+        <p data-i18n="services.lead">این چند مورد، فقط نمونه‌ای از خدماتی است که در کانال IdolVPN منتشر می‌شود. برای فهرست کامل و به‌روز، به کانال یا ربات مراجعه کنید.</p>
+      </div>
 
-  <!-- SERVICE CATEGORIES -->
-  <section class="section alt" id="categories">
-    <div class="wrap">
-      <p class="eyebrow" data-i18n="cats.eyebrow">خدمات تیم</p>
-      <h2 data-i18n="cats.title">چهار ستون خدمات Idolvpn</h2>
+      <div class="grid-cards">
 
-      <div class="cat-grid">
-
-        <article class="cat-card">
-          <div class="cat-head">
-            <span class="cat-glyph" data-glyph="intro" aria-hidden="true"></span>
-            <h3 data-i18n="cats.intro.title">معرفی</h3>
-          </div>
-          <ul>
-            <li data-i18n="cats.intro.i1">معرفی وب‌سایت‌های کاربردی</li>
-            <li data-i18n="cats.intro.i2">معرفی اپلیکیشن‌های کاربردی</li>
-            <li data-i18n="cats.intro.i3">معرفی پروژه‌های متن‌باز</li>
-            <li data-i18n="cats.intro.i4">معرفی انواع فیلترشکن</li>
-            <li data-i18n="cats.intro.i5">معرفی گوشی‌های مناسب</li>
-            <li data-i18n="cats.intro.i6">معرفی ابزارهای کاربردی</li>
-            <li data-i18n="cats.intro.i7">معرفی ابزارهای پولی که رایگان شده‌اند</li>
-          </ul>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+          <h3 data-i18n="svc.configs.title">کانفیگ‌های رایگان و پرمیوم</h3>
+          <p data-i18n="svc.configs.desc">کانفیگ‌های V2Ray، VMess، VLESS، Trojan، Shadowsocks و Hiddify، تست‌شده و آماده‌ی اتصال، هر روز در کانال منتشر می‌شود.</p>
+          <a class="card-link" href="https://t.me/Idolvpn" target="_blank" rel="noopener">
+            <span data-i18n="svc.configs.link">مشاهده در کانال</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </article>
 
-        <article class="cat-card">
-          <div class="cat-head">
-            <span class="cat-glyph" data-glyph="offer" aria-hidden="true"></span>
-            <h3 data-i18n="cats.offer.title">ارائه</h3>
-          </div>
-          <ul>
-            <li data-i18n="cats.offer.i1">ارائه‌ی کانفیگ‌های رایگان</li>
-            <li data-i18n="cats.offer.i2">ارائه‌ی اشتراک‌های رایگان و پولی</li>
-            <li data-i18n="cats.offer.i3">ارائه‌ی اکانت‌های پولی فیلترشکن به‌صورت رایگان</li>
-            <li data-i18n="cats.offer.i4">ارائه‌ی لایسنس ابزارها و اپلیکیشن‌های مختلف</li>
-          </ul>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><line x1="12" y1="8" x2="12" y2="4"/><circle cx="12" cy="3" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+          <h3 data-i18n="svc.bot.title">ربات هوشمند تحویل اتصال</h3>
+          <p data-i18n="svc.bot.desc">به‌جای گشتن دستی بین پست‌ها، از ربات @Idolvpn_robot کانفیگ متناسب با دستگاه و پروتکل موردنظرتان را در چند ثانیه بگیرید.</p>
+          <a class="card-link" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">
+            <span data-i18n="svc.bot.link">باز کردن ربات</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </article>
 
-        <article class="cat-card">
-          <div class="cat-head">
-            <span class="cat-glyph" data-glyph="warn" aria-hidden="true"></span>
-            <h3 data-i18n="cats.warn.title">هشدار</h3>
-          </div>
-          <ul>
-            <li data-i18n="cats.warn.i1">هشدارهای امنیتی</li>
-            <li data-i18n="cats.warn.i2">هشدارهای به‌روزرسانی</li>
-            <li data-i18n="cats.warn.i3">هشدارهای سلامت جسم و روان</li>
-          </ul>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 1 8-8"/><line x1="12" y1="12" x2="16" y2="8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+          <h3 data-i18n="svc.speed.title">تست سرعت و نشتی آی‌پی</h3>
+          <p data-i18n="svc.speed.desc">قبل و بعد از اتصال، با ابزار اختصاصی IdolVPN سرعت واقعی، پینگ و احتمال نشت آی‌پی/DNS را بسنجید؛ بدون نصب چیزی.</p>
+          <a class="card-link" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener">
+            <span data-i18n="svc.speed.link">رفتن به ابزار تست</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </article>
 
-        <article class="cat-card">
-          <div class="cat-head">
-            <span class="cat-glyph" data-glyph="info" aria-hidden="true"></span>
-            <h3 data-i18n="cats.info.title">اطلاع‌رسانی عمومی</h3>
-          </div>
-          <ul>
-            <li data-i18n="cats.info.i1">اخبار و تغییرات مهم فضای مجازی</li>
-            <li data-i18n="cats.info.i2">اطلاع‌رسانی به‌موقع درباره‌ی محدودیت‌های جدید</li>
-            <li data-i18n="cats.info.i3">و هزاران خدمت دیگر برای یک زندگی و کسب‌وکار سالم و آزاد</li>
-          </ul>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
+          <h3 data-i18n="svc.guides.title">آموزش گام‌به‌گام</h3>
+          <p data-i18n="svc.guides.desc">راهنمای اتصال روی اندروید، iOS، ویندوز و مک، به‌همراه رفع مشکلات رایج، به‌طور مرتب در کانال منتشر می‌شود.</p>
+          <a class="card-link" href="https://t.me/Idolvpn" target="_blank" rel="noopener">
+            <span data-i18n="svc.guides.link">دیدن آموزش‌ها</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9.5 12.5l2 2 3.5-4"/></svg></div>
+          <h3 data-i18n="svc.security.title">شفافیت و امنیت</h3>
+          <p data-i18n="svc.security.desc">همیشه پیش از استفاده از هر سرور، منبع و تاریخ انتشار کانفیگ در پست کانال قید می‌شود تا با آگاهی کامل انتخاب کنید.</p>
+          <a class="card-link" href="https://t.me/Idolvpn" target="_blank" rel="noopener">
+            <span data-i18n="svc.security.link">قوانین کانال</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3 data-i18n="svc.support.title">پشتیبانی مستقیم</h3>
+          <p data-i18n="svc.support.desc">سوال، مشکل اتصال یا پیشنهاد دارید؟ مستقیم در کانال کامنت بگذارید یا از طریق ربات پیام بدهید.</p>
+          <a class="card-link" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">
+            <span data-i18n="svc.support.link">تماس در تلگرام</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- TOOLS -->
-  <section class="section" id="tools">
-    <div class="wrap">
-      <p class="eyebrow" data-i18n="tools.eyebrow">ابزارهای اختصاصی</p>
-      <h2 data-i18n="tools.title">ساخته‌ی تیم Idolvpn</h2>
+  <!-- LATEST POSTS (auto-synced) -->
+  <section class="section" id="posts">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="posts.eyebrow">آخرین پست‌ها</p>
+        <h2 data-i18n="posts.title">به‌روزرسانی خودکار از کانال</h2>
+        <p data-i18n="posts.lead">این بخش هر روز به‌صورت خودکار از تازه‌ترین پست‌های کانال IdolVPN همگام‌سازی می‌شود. برای آرشیو کامل، وارد کانال شوید.</p>
+      </div>
 
-      <div class="tool-grid">
-        <article class="tool-card">
-          <span class="tool-glyph" data-glyph="bot" aria-hidden="true"></span>
-          <h3 data-i18n="tools.bot.title">ربات کانفیگ رایگان</h3>
-          <p data-i18n="tools.bot.desc">کانفیگ‌های رایگان و به‌روز فیلترشکن را مستقیم در تلگرام دریافت کنید.</p>
-          <a class="btn btn-primary sm" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">
-            <span data-i18n="tools.bot.cta">ورود به ربات</span>
-          </a>
-        </article>
+      <div class="feed reveal" id="feedList">
+        <div class="feed-loading" data-i18n="posts.loading">در حال دریافت آخرین پست‌ها…</div>
+      </div>
 
-        <article class="tool-card">
-          <span class="tool-glyph" data-glyph="speed" aria-hidden="true"></span>
-          <h3 data-i18n="tools.speed.title">تست سرعت، کیفیت اینترنت و نشت آی‌پی</h3>
-          <p data-i18n="tools.speed.desc">اتصال خود را بسنجید و مطمئن شوید هیچ نشت آی‌پی یا DNS‌ای در کار نیست.</p>
-          <a class="btn btn-primary sm" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener">
-            <span data-i18n="tools.speed.cta">شروع تست</span>
-          </a>
-        </article>
+      <div class="feed-foot">
+        <span class="feed-updated"><span data-i18n="posts.updated">آخرین به‌روزرسانی:</span> <span id="feedUpdatedAt">—</span></span>
+        <a class="btn btn-ghost btn-sm" href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="posts.viewall">دیدن همهٔ پست‌ها در کانال</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT / CTA -->
-  <section class="section cta-section" id="contact">
-    <div class="wrap cta-inner">
-      <h2 data-i18n="cta.title">همین حالا به Idolvpn وصل شوید</h2>
-      <p data-i18n="cta.sub">کانفیگ رایگان بگیرید، کیفیت اتصال‌تان را بسنجید و از هشدارها و اخبار امنیتی عقب نمانید.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">
-          <span data-i18n="cta.ctaBot">دریافت کانفیگ رایگان</span>
-        </a>
-        <a class="btn btn-ghost" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener">
-          <span data-i18n="cta.ctaTest">تست کیفیت اینترنت</span>
-        </a>
+  <!-- SPEED TEST -->
+  <section class="section" id="speed">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="speed.eyebrow">تست سرعت</p>
+        <h2 data-i18n="speed.title">قبل از اعتماد، تست کنید</h2>
+      </div>
+
+      <div class="speed-wrap">
+        <div class="speed-panel reveal">
+          <p data-i18n="speed.p1">ابزار اختصاصی IdolVPN به شما اجازه می‌دهد سرعت دانلود/آپلود، پینگ و مهم‌تر از همه، احتمال نشت آی‌پی یا DNS را در چند ثانیه بررسی کنید — کاملاً رایگان و بدون نیاز به نصب برنامه.</p>
+          <p data-i18n="speed.p2">پیشنهاد می‌کنیم این تست را هم پیش از اتصال (برای سنجش وضعیت شبکهٔ خودتان) و هم پس از وصل‌شدن به کانفیگ (برای اطمینان از عدم نشت اطلاعات) انجام دهید.</p>
+          <a class="btn btn-primary" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener" data-i18n="speed.cta">باز کردن ابزار در تب جدید</a>
+        </div>
+
+        <div class="speed-frame-wrap reveal">
+          <iframe id="speedFrame" src="https://idolvpn.testplus.workers.dev" title="IdolVPN Speed & Leak Test" loading="lazy"></iframe>
+          <div class="speed-fallback" id="speedFallback">
+            <svg class="gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 12l5-5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>
+            <strong data-i18n="speed.fallback.title">نمایش مستقیم در دسترس نیست</strong>
+            <p class="text-muted" data-i18n="speed.fallback.desc">مرورگر شما اجازهٔ نمایش ابزار در همین صفحه را نداد. آن را در تب جدید باز کنید.</p>
+            <a class="btn btn-primary btn-sm" href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener" data-i18n="speed.fallback.cta">باز کردن ابزار تست</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="faq.eyebrow">سوالات متداول</p>
+        <h2 data-i18n="faq.title">قبل از پرسیدن، اینجا را بخوانید</h2>
+      </div>
+
+      <div class="faq reveal">
+        <details open>
+          <summary data-i18n="faq.q1">چطور کانفیگ بگیرم؟</summary>
+          <div class="a" data-i18n="faq.a1">ساده‌ترین راه، عضویت در کانال @Idolvpn و دریافت آخرین پست کانفیگ است. اگر می‌خواهید سریع‌تر و بر اساس دستگاه‌تان کانفیگ بگیرید، ربات @Idolvpn_robot را باز کنید.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">کانفیگ‌ها رایگان هستند؟</summary>
+          <div class="a" data-i18n="faq.a2">بخشی از کانفیگ‌ها به‌صورت رایگان و بخشی به‌صورت پرمیوم در کانال منتشر می‌شود؛ جزئیات هر مورد در همان پست قید شده است.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">چطور مطمئن شوم اتصالم امن است؟</summary>
+          <div class="a" data-i18n="faq.a3">پیش و پس از اتصال، از ابزار تست سرعت و نشتی آی‌پی IdolVPN استفاده کنید تا از عدم نشت DNS/IP مطمئن شوید.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq.q4">کانفیگ روی گوشی/سیستم من کار نمی‌کند، چه کنم؟</summary>
+          <div class="a" data-i18n="faq.a4">آموزش‌های نصب برای اندروید، iOS، ویندوز و مک در کانال موجود است. اگر باز هم مشکل داشتید، در کانال کامنت بگذارید یا از ربات کمک بگیرید.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section" style="padding-block-start:0">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h3 data-i18n="cta.title">همین حالا به کانال بپیوندید</h3>
+        <p class="text-muted" data-i18n="cta.desc" style="max-width:32ch">کانفیگ‌های تازه، ابزار تست سرعت و پشتیبانی مستقیم، همه در یک‌جا.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="hero.cta.channel">عضویت در کانال</a>
+          <a class="btn btn-ghost" href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener" data-i18n="hero.cta.bot">باز کردن ربات</a>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <span class="brand-mark small" aria-hidden="true"></span>
-      <span data-i18n="footer.name">Idolvpn</span>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <img src="assets/logo-192.png" alt="IdolVPN" width="34" height="34">
+          <span>IdolVPN</span>
+        </div>
+        <p data-i18n="footer.about">IdolVPN کانال و ربات تلگرامی برای دسترسی آزاد، امن و بدون محدودیت به اینترنت است.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4 data-i18n="footer.col1">دسترسی سریع</h4>
+        <a href="#about" data-i18n="nav.about">درباره ما</a>
+        <a href="#services" data-i18n="nav.services">خدمات</a>
+        <a href="#posts" data-i18n="nav.posts">آخرین پست‌ها</a>
+        <a href="#speed" data-i18n="nav.speed">تست سرعت</a>
+        <a href="#faq" data-i18n="nav.faq">سوالات متداول</a>
+      </div>
+
+      <div class="foot-col">
+        <h4 data-i18n="footer.col2">کانال</h4>
+        <a href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="footer.channel">کانال تلگرام</a>
+        <a href="https://t.me/Idolvpn" target="_blank" rel="noopener" data-i18n="footer.rules">قوانین و شفافیت</a>
+        <a href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener" data-i18n="footer.support">پشتیبانی</a>
+      </div>
+
+      <div class="foot-col">
+        <h4 data-i18n="footer.col3">ابزار</h4>
+        <a href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener" data-i18n="footer.bot">ربات تلگرام</a>
+        <a href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener" data-i18n="footer.speedtest">تست سرعت و نشتی آی‌پی</a>
+      </div>
     </div>
-    <p class="footer-note" data-i18n="footer.note">معرفی، ارائه، هشدار و اطلاع‌رسانی — برای زندگی و کسب‌وکاری آزاد در فضای مجازی.</p>
-    <div class="footer-links">
-      <a href="https://t.me/Idolvpn_robot" target="_blank" rel="noopener">Telegram Bot</a>
-      <a href="https://idolvpn.testplus.workers.dev" target="_blank" rel="noopener" data-i18n="footer.speedtest">تست سرعت</a>
+
+    <div class="foot-bottom">
+      <span data-i18n="footer.rights">تمامی حقوق نزد کانال IdolVPN محفوظ است.</span>
+      <span>© <span id="year"></span> IdolVPN — <span data-i18n="footer.autoupdate">این صفحه به‌صورت خودکار از کانال به‌روزرسانی می‌شود.</span></span>
     </div>
-    <p class="footer-copy">© <span id="year"></span> Idolvpn</p>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/posts.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

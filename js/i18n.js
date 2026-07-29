@@ -1,4 +1,5 @@
-here/* IdolVPN — translation dictionary.
+
+/* IdolVPN — translation dictionary.
    Every visible string lives here so the whole site can flip
    between Persian (fa, default) and English (en) instantly. */
 
